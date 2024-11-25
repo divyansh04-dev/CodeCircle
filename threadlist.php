@@ -95,7 +95,6 @@
     </div>
 
     <?php
-        $catid = $_GET['catid'];
         $result = mysqli_query($conn, "SELECT * FROM `threads` WHERE category_id = $catid");
 
         if ($result && mysqli_num_rows($result) > 0) {
