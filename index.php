@@ -39,21 +39,22 @@
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div id="msg"></div>
                     <div class="modal-body">
                         <form action="" method="POST">
                             <div class="mb-3">
-                                <label for="user_email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" name="user_email id="user_email required" aria-describedby="emailHelp">
+                                <label for="check_email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="check_email" name="check_email" required>
                             </div>
                             <div class="mb-3">
-                                <label for="user_pass" class="form-label">Password</label>
-                                <input type="password" class="form-control" name="user_pass" id="user_pass required">
+                                <label for="check_pass" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="check_pass" name="check_pass" required>
                             </div>
                             </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" id="check_user" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </div>
