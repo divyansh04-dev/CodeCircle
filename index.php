@@ -28,7 +28,7 @@
 </head>
 
 <body>
-
+    <div id="success_msg"></div>
     <?php include 'common/_header.php'; ?>
     <?php
         echo '<!-- sign in modal -->
@@ -67,7 +67,7 @@
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="show_msg"></div>
+                    <div id="show_msg"></div>
                     <div class="modal-body">
                         <form action="index.php" method="POST">
                             <div class="mb-3">
@@ -168,13 +168,59 @@
             var user_pass = $('#user_pass').val();
             var user_cpass = $('#user_cpass').val();
 
-            console.log("Email: ", user_email);
-            console.log("Password: ", user_pass);
-            console.log("Confirm Password: ", user_cpass);
+            $.ajax({
+                type: "POST",
+                url: "common/_signup.php",
+                data: {
+                    'user_email': user_email,
+                    'user_pass': user_pass,
+                    'user_cpass': user_cpass,
+                },
+                success: function(response) {
+                    console.log(response);
+                    $('#show_msg').html('');
 
+                    if (response === 'exists') {
+                        $('#show_msg').append('\
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">\
+                            <strong>Failed!</strong> Email already exists.\
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>\
+                        ');
+                    } else if (response === 'no') {
+                        $('#show_msg').append('\
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">\
+                            <strong>Failed!</strong> Passwords do not match.\
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>\
+                        ');
+                    } else if (response === 'empty') {
+                        $('#show_msg').append('\
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">\
+                            <strong>Failed!</strong> Please fill all the Fields.\
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>\
+                        ');
+                    } else if (response === 'success') {
+                        $('#success_msg').append('\
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">\
+                            <strong>Success!</strong> User has been added.\
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>\
+                        ');
+                        $('#user_email').val('');
+                        $('#user_pass').val('');
+                        $('#user_cpass').val('');
+                        $('#sign-up-modal').modal('hide');
+                    } else if (response === 'error') {
+                        $('#show_msg').append('\
+                            <div class="alert alert-danger alert-dismissible fade show my-0 mb-0" role="alert">\
+                            <strong>Error!</strong> Something went wrong.\
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>\
+                        ');
+                    }
+                }
+            });
         });
     });
     </script>
+
 </body>
 
 </html>
