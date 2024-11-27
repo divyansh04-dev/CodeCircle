@@ -24,8 +24,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Threads</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="jquery-3.7.1.min.js"></script>
 
@@ -59,21 +59,22 @@
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div id="msg"></div>
                     <div class="modal-body">
                         <form action="" method="POST">
                             <div class="mb-3">
-                                <label for="user_email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" name="user_email id="user_email required" aria-describedby="emailHelp">
+                                <label for="check_email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="check_email" name="check_email" required>
                             </div>
                             <div class="mb-3">
-                                <label for="user_pass" class="form-label">Password</label>
-                                <input type="password" class="form-control" name="user_pass" id="user_pass required">
+                                <label for="check_pass" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="check_pass" name="check_pass" required>
                             </div>
                             </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" id="check_user" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </div>
@@ -173,10 +174,8 @@
 
 
 
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-    </script>
     <script src="common/_script.js"></script>
     <?php include_once 'common/_footer.php'; ?>
 

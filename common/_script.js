@@ -88,10 +88,26 @@ $(document).ready(function() {
                 } else if (response === 'did not exits') {
                     $('#msg').append('\
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">\
-                        <strong>Failed!</strong> Did not exits.\
+                        <strong>Failed!</strong> User not exits.\
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>\
                     ');
                     $('#check_email').val('');
+                    $('#check_pass').val('');
+                } else if (response === 'match pass') {
+                    $('#success_msg').append('\
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">\
+                        <strong>Success!</strong> Successfully Login.\
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>\
+                    ');
+                    $('#check_email').val('');
+                    $('#check_pass').val('');
+                    $('#sign-in-modal').modal('hide');
+                }else if (response === 'not match pass') {
+                    $('#msg').append('\
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">\
+                        <strong>Failed!</strong> Password not matched.\
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>\
+                    ');
                     $('#check_pass').val('');
                 }
             }
