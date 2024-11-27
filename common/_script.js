@@ -102,6 +102,7 @@ $(document).ready(function() {
                     $('#check_email').val('');
                     $('#check_pass').val('');
                     $('#sign-in-modal').modal('hide');
+                    window.location.href = 'http://localhost/CodeCircle/index.php';
                 }else if (response === 'not match pass') {
                     $('#msg').append('\
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">\

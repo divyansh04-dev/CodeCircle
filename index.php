@@ -29,7 +29,9 @@
 
 <body>
     <div id="success_msg"></div>
-    <?php include 'common/_header.php'; ?>
+    <?php include 'common/_header.php'; 
+    
+    ?>
     <?php
         echo '<!-- sign in modal -->
         <div class="modal fade" id="sign-in-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
