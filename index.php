@@ -10,21 +10,8 @@
 
     <link rel="icon" href="favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <style>
-    .carousel-image {
-        max-height: 450px;
-        object-fit: cover;
-    }
 
-    .card-img {
-        height: 200px;
-    }
-
-    a {
-        text-decoration: none;
-        color: black;
-    }
-    </style>
+    <link rel="stylesheet" href="common/_style.css">
 </head>
 
 <body>
@@ -140,7 +127,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
             echo '
                 <div class="col-3">
-                    <div class="card mb-5">
+                    <div class="card card-zoom mb-5">
                         <img alt="not found" src="img/'.$row['category_img'].'" class="card-img-top card-img">
                         <div class="card-body">
                             <h5 class="card-title">

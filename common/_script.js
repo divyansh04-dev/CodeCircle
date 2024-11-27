@@ -1,3 +1,12 @@
+window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.backgroundColor = 'black';
+    } else {
+        navbar.style.backgroundColor = 'transparent';
+    }
+});
+
 $(document).ready(function() {
     $('#adduser').click(function(e) {
         e.preventDefault();
@@ -94,11 +103,6 @@ $(document).ready(function() {
                     $('#check_email').val('');
                     $('#check_pass').val('');
                 } else if (response === 'match pass') {
-                    $('#success_msg').append('\
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">\
-                        <strong>Success!</strong> Successfully Login.\
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>\
-                    ');
                     $('#check_email').val('');
                     $('#check_pass').val('');
                     $('#sign-in-modal').modal('hide');

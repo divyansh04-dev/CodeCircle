@@ -1,0 +1,64 @@
+.carousel-image {
+    max-height: 600px;
+    object-fit: cover;
+}
+
+.card-img {
+    height: 200px;
+}
+
+.Welcome {
+    background-color: #E9ECEF;
+    min-height: 230px;
+    border-radius: 10px;
+    padding-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.card-zoom {
+    transition: transform 0.6s;
+    z-index: 0;
+}
+
+.card-zoom:hover {
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+.hero-unit {
+    background-color: #E9ECEF;
+    padding-top: 15px;
+    min-height: 210px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: transparent;
+    transition: background-color 0.3s ease; 
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+}

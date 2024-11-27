@@ -34,21 +34,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="jquery-3.7.1.min.js"></script>
 
-    <style>
-    .Welcome {
-        background-color: #E9ECEF;
-        min-height: 230px;
-        border-radius: 10px;
-        padding-top: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
-
-    a {
-        text-decoration: none;
-        color: black;
-    }
-    </style>
+    <link rel="stylesheet" href="common/_style.css">
 </head>
 
 <body>
