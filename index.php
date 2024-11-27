@@ -12,11 +12,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="common/_style.css">
+    <style>
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        background: transparent;
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: white;
+    }
+
+    .navbar-light .navbar-brand {
+        color: white;
+    }
+    </style>
 </head>
 
 <body>
     <div id="success_msg"></div>
-    <?php include 'common/_header.php'; 
+    <?php include 'common/_nav_header.php'; 
     
     ?>
     <?php
@@ -149,7 +168,16 @@
 
     <script src="common/_script.js"></script>
     <?php include_once 'common/_footer.php'; ?>
-
+    <script>
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.style.backgroundColor = 'black';
+        } else {
+            navbar.style.backgroundColor = 'transparent';
+        }
+    });
+    </script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 .carousel-image {
-    max-height: 600px;
+    max-height: 650px;
     object-fit: cover;
 }
 
@@ -45,20 +45,3 @@ a {
     color: black;
 }
 
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    background: transparent;
-    transition: background-color 0.3s ease; 
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: white;
-}
-
-.navbar-light .navbar-brand {
-    color: white;
-}

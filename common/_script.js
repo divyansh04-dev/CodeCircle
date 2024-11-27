@@ -1,11 +1,3 @@
-window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.backgroundColor = 'black';
-    } else {
-        navbar.style.backgroundColor = 'transparent';
-    }
-});
 
 $(document).ready(function() {
     $('#adduser').click(function(e) {
