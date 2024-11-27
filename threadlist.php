@@ -5,6 +5,22 @@
     } else{
         die('invalied category id');
     } 
+    
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if(isset($_POST['add_thread'])){
+            $catid = $_GET['catid'];
+            $thread_title = mysqli_real_escape_string($conn, $_POST['thread_title']);
+            $thread_desc = mysqli_real_escape_string($conn, $_POST['thread_desc']);                
+    
+            $add_sql = "INSERT INTO `threads`(`category_id`, `thread_title`, `thread_desc`) VALUES ('$catid','$thread_title','$thread_desc')";
+            $add_result = mysqli_query($conn, $add_sql);
+
+            if(!$add_result){
+                echo 'failed!' . mysqli_error($conn);
+            }
+        }
+    }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -120,42 +136,36 @@
         }
     ?>
 
-
-    <div class="container my-4">
-        <h1>Add Question</h1>
-    </div>
-
     <?php
-        if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            if(isset($_POST['add_thread'])){
-                $catid = $_GET['catid'];
-                $thread_title = mysqli_real_escape_string($conn, $_POST['thread_title']);
-                $thread_desc = mysqli_real_escape_string($conn, $_POST['thread_desc']);                
-        
-                $add_sql = "INSERT INTO `threads`(`category_id`, `thread_title`, `thread_desc`) VALUES ('$catid','$thread_title','$thread_desc')";
-                $add_result = mysqli_query($conn, $add_sql);
+        if (!isset($_SESSION['user_email'])){
+            echo '<div class="container my-4">
+                    <div class="card">
+                        <div class="card-body">
+                            If you want to post a Thread, please <a href="" data-bs-toggle="modal" data-bs-target="#sign-in-modal"
+                                class="btn btn-outline-success btn-md ms-2">Sign in</a>
+                        </div>
+                    </div>
+                </div>';
+        } else{
+            echo '<div class="container my-4">
+                    <h1>Add Question</h1>
+                </div>
 
-                if(!$add_result){
-                    echo 'failed!' . mysqli_error($conn);
-                }
-            }
-        }
-    ?>
-
-    <div class="container">
-        <form action="threadlist.php?catid=<?= $catid; ?>" method="POST">
-            <div class="mb-3">
-                <label for="thread_title">Title</label>
-                <input type="text" class="form-control" id="thread_title" name="thread_title" required>
-            </div>
-            <div class="mb-3">
-                <label for="thread_desc">Description</label>
-                <input type="text" class="form-control" id="thread_desc" name="thread_desc" required>
-            </div>
-            <button type="submit" name="add_thread" class="btn btn-primary">Post</button>
-        </form>
+                <div class="container">
+                    <form action="threadlist.php?catid=<?= $catid; ?>" method="POST">
+    <div class="mb-3">
+        <label for="thread_title">Title</label>
+        <input type="text" class="form-control" id="thread_title" name="thread_title" required>
     </div>
-
+    <div class="mb-3">
+        <label for="thread_desc">Description</label>
+        <input type="text" class="form-control" id="thread_desc" name="thread_desc" required>
+    </div>
+    <button type="submit" name="add_thread" class="btn btn-primary">Post</button>
+    </form>
+    </div>';
+    }
+    ?>
 
     <div class="container mt-4 mb-5">
         <h1>Browse Question..</h1>

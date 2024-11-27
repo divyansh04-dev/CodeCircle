@@ -130,20 +130,35 @@
         }
     ?>
 
-    <div class="container my-4">
+    <?php
+        if (!isset($_SESSION['user_email'])){
+            echo '<div class="container my-4">
+                    <div class="card">
+                        <div class="card-body">
+                            If you want to post a Comment, please <a href="" data-bs-toggle="modal" data-bs-target="#sign-in-modal"
+                                class="btn btn-outline-success btn-md ms-2">Sign in</a>
+                        </div>
+                    </div>
+                </div>';
+        } else{
+            echo '<div class="container my-4">
         <h1>Post Comments</h1>
     </div>
 
     <div class="container">
         <form action="comment.php?threadid=<?= $threadid ?>" method="POST">
-            <div class="form-floating">
-                <textarea class="form-control" name="comment_desc" placeholder="Leave a comment here"
-                    id="floatingTextarea"></textarea>
-                <label for="floatingTextarea">Comments</label>
-            </div>
-            <button type="submit" name="addpost" class="btn btn-primary my-3">Post</button>
-        </form>
+    <div class="form-floating">
+        <textarea class="form-control" name="comment_desc" placeholder="Leave a comment here"
+            id="floatingTextarea"></textarea>
+        <label for="floatingTextarea">Comments</label>
     </div>
+    <button type="submit" name="addpost" class="btn btn-primary my-3">Post</button>
+    </form>
+    </div>';
+    }
+    ?>
+
+
 
     <div class="container my-4">
         <h1>Discussion</h1>
