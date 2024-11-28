@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
     <link rel="icon" href="favicon.ico">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="common/_style.css">
     <style>
@@ -172,7 +173,7 @@
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
-            navbar.style.backgroundColor = 'black';
+            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
         } else {
             navbar.style.backgroundColor = 'transparent';
         }

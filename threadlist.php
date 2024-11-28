@@ -8,7 +8,6 @@
     
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         if(isset($_POST['add_thread'])){
-            $catid = $_GET['catid'];
             $thread_title = mysqli_real_escape_string($conn, $_POST['thread_title']);
             $thread_desc = mysqli_real_escape_string($conn, $_POST['thread_desc']);                
     
@@ -30,9 +29,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Threads</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="icon" href="favicon.ico">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="common/_style.css">
 </head>
@@ -122,36 +122,30 @@
         }
     ?>
 
-    <?php
-        if (!isset($_SESSION['user_email'])){
-            echo '<div class="container my-4">
-                    <div class="card">
-                        <div class="card-body">
-                            If you want to post a Thread, please <a href="" data-bs-toggle="modal" data-bs-target="#sign-in-modal"
-                                class="btn btn-outline-success btn-md ms-2">Sign in</a>
-                        </div>
-                    </div>
-                </div>';
-        } else{
-            echo '<div class="container my-4">
-                    <h1>Add Question</h1>
-                </div>
+    <div class="container my-4">
+        <h1>Add Question</h1>
+    </div>
 
-                <div class="container">
-                    <form action="threadlist.php?catid=<?= $catid; ?>" method="POST">
-    <div class="mb-3">
-        <label for="thread_title">Title</label>
-        <input type="text" class="form-control" id="thread_title" name="thread_title" required>
+    <div class="container">
+        <form action="threadlist.php?catid=<?= $catid; ?>" method="POST">
+            <div class="mb-3">
+                <label for="thread_title">Title</label>
+                <input type="text" class="form-control" id="thread_title" name="thread_title" required>
+            </div>
+            <div class="mb-3">
+                <label for="thread_desc">Description</label>
+                <input type="text" class="form-control" id="thread_desc" name="thread_desc" required>
+            </div>
+            <?php
+                if (!isset($_SESSION['user_email'])){
+                    echo '<a href="" data-bs-toggle="modal" data-bs-target="#sign-in-modal"
+                class="btn btn-outline-success btn-md ms-2">Sign in</a>';
+                } else{
+                    echo '<button type="submit" name="add_thread" class="btn btn-primary">Post</button>';
+                }
+            ?>
+        </form>
     </div>
-    <div class="mb-3">
-        <label for="thread_desc">Description</label>
-        <input type="text" class="form-control" id="thread_desc" name="thread_desc" required>
-    </div>
-    <button type="submit" name="add_thread" class="btn btn-primary">Post</button>
-    </form>
-    </div>';
-    }
-    ?>
 
     <div class="container mt-4 mb-5">
         <h1>Browse Question..</h1>

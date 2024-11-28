@@ -71,6 +71,7 @@ $(document).ready(function() {
 
         var check_email = $('#check_email').val();
         var check_pass = $('#check_pass').val();
+        var current_url = window.location.href;
 
         $.ajax({
             type: "POST",
@@ -78,6 +79,7 @@ $(document).ready(function() {
             data: {
                 'check_email': check_email,
                 'check_pass': check_pass,
+                'redirect_url': current_url,
             },
             success: function (response) {
                 if (response === 'field empty') {
@@ -94,12 +96,14 @@ $(document).ready(function() {
                     ');
                     $('#check_email').val('');
                     $('#check_pass').val('');
-                } else if (response === 'match pass') {
+                } else if (response.startsWith('redirect:')) {
+                    var redirect_url = response.split('redirect:')[1];
                     $('#check_email').val('');
                     $('#check_pass').val('');
                     $('#sign-in-modal').modal('hide');
-                    window.location.href = 'http://localhost/CodeCircle/index.php';
-                }else if (response === 'not match pass') {
+                
+                    window.location.href = redirect_url;
+                } else if (response === 'not match pass') {
                     $('#msg').append('\
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">\
                         <strong>Failed!</strong> Password not matched.\

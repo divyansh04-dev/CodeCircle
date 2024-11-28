@@ -25,9 +25,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Threads</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="icon" href="favicon.ico">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="common/_style.css">
 </head>
@@ -116,35 +117,27 @@
         }
     ?>
 
-    <?php
-        if (!isset($_SESSION['user_email'])){
-            echo '<div class="container my-4">
-                    <div class="card">
-                        <div class="card-body">
-                            If you want to post a Comment, please <a href="" data-bs-toggle="modal" data-bs-target="#sign-in-modal"
-                                class="btn btn-outline-success btn-md ms-2">Sign in</a>
-                        </div>
-                    </div>
-                </div>';
-        } else{
-            echo '<div class="container my-4">
+    <div class="container my-4">
         <h1>Post Comments</h1>
     </div>
 
     <div class="container">
         <form action="comment.php?threadid=<?= $threadid ?>" method="POST">
-    <div class="form-floating">
-        <textarea class="form-control" name="comment_desc" placeholder="Leave a comment here"
-            id="floatingTextarea"></textarea>
-        <label for="floatingTextarea">Comments</label>
+            <div class="form-floating">
+                <textarea class="form-control" name="comment_desc" placeholder="Leave a comment here"
+                    id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">Comments</label>
+            </div>
+            <?php
+                if (!isset($_SESSION['user_email'])){
+                    echo '<a href="" data-bs-toggle="modal" data-bs-target="#sign-in-modal"
+                            class="btn btn-outline-success btn-md my-3">Sign in</a>';
+                } else{
+                    echo '<button type="submit" name="addpost" class="btn btn-primary my-3">Post</button>';
+                }
+            ?>
+        </form>
     </div>
-    <button type="submit" name="addpost" class="btn btn-primary my-3">Post</button>
-    </form>
-    </div>';
-    }
-    ?>
-
-
 
     <div class="container my-4">
         <h1>Discussion</h1>
