@@ -88,6 +88,12 @@ $(document).ready(function() {
                         <strong>Failed!</strong> Please fill all the Fields.\
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>\
                     ');
+                } else if (response === 'not valid email') {
+                    $('#msg').append('\
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">\
+                        <strong>Failed!</strong> Please enter valid Email.\
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>\
+                    ');
                 } else if (response === 'did not exits') {
                     $('#msg').append('\
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">\

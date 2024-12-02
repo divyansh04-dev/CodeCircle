@@ -50,7 +50,7 @@
                     </div>
                     <div id="msg"></div>
                     <div class="modal-body">
-                        <form action="" method="POST">
+                        <form action="" id="sign" method="POST">
                             <div class="mb-3">
                                 <label for="check_email" class="form-label">Email address</label>
                                 <input type="email" class="form-control" id="check_email" name="check_email" required>
@@ -62,8 +62,15 @@
                             </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" id="check_user" class="btn btn-primary">Submit</button>
+                        <div class="row w-100">
+                            <div class="col text-start">
+                                <p id="forgot" class="mb-0">Forgot Password</p>
+                            </div>
+                            <div class="col text-end">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" id="check_user" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,7 +173,14 @@
     ?>
 
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script>
+    $(document).ready(function() {
+        $('#forgot').click(function(e) {
+            e.preventDefault();
+            $('#sign').hide();
+        });
+    });
+    </script>
     <script src="common/_script.js"></script>
     <?php include_once 'common/_footer.php'; ?>
     <script>
