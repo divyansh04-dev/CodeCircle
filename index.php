@@ -36,9 +36,8 @@
 
 <body>
     <div id="success_msg"></div>
-    <?php include 'common/_nav_header.php'; 
-    
-    ?>
+    <?php include 'common/_nav_header.php'; ?>
+
     <?php
         echo '<!-- sign in modal -->
         <div class="modal fade" id="sign-in-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -52,8 +51,8 @@
                     <div class="modal-body">
                         <form action="" id="sign" method="POST">
                             <div class="mb-3">
-                                <label for="check_email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="check_email" name="check_email" required>
+                                <label for="check_name" class="form-label">User name</label>
+                                <input type="text" class="form-control" id="check_name" name="check_name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="check_pass" class="form-label">Password</label>
@@ -88,8 +87,8 @@
                     <div class="modal-body">
                         <form action="index.php" method="POST">
                             <div class="mb-3">
-                                <label for="user_email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="user_email" name="user_email" aria-describedby="emailHelp" required>
+                                <label for="user_name" class="form-label">User name</label>
+                                <input type="text" class="form-control" id="user_name" name="user_name" aria-describedby="emailHelp" required>
                             </div>
                             <div class="mb-3">
                                 <label for="user_pass" class="form-label">Password</label>

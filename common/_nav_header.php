@@ -32,7 +32,7 @@
             </form>
             <div>';
             
-            if (isset($_SESSION['user_email'])) {
+            if (isset($_SESSION['user_name'])) {
                 echo '<a href="_logout.php" class="btn btn-outline-danger btn-md ms-2 me-4">Logout</a>';
             } else {
                 echo '<a href="" data-bs-toggle="modal" data-bs-target="#sign-in-modal" class="btn btn-outline-success btn-md ms-2">Sign in</a>

@@ -48,10 +48,10 @@
                     </div>
                     <div id="msg"></div>
                     <div class="modal-body">
-                        <form action="" method="POST">
+                        <form action="" id="sign" method="POST">
                             <div class="mb-3">
-                                <label for="check_email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="check_email" name="check_email" required>
+                                <label for="check_name" class="form-label">User name</label>
+                                <input type="text" class="form-control" id="check_name" name="check_name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="check_pass" class="form-label">Password</label>
@@ -60,8 +60,15 @@
                             </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" id="check_user" class="btn btn-primary">Submit</button>
+                        <div class="row w-100">
+                            <div class="col text-start">
+                                <p id="forgot" class="mb-0">Forgot Password</p>
+                            </div>
+                            <div class="col text-end">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" id="check_user" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -79,8 +86,8 @@
                     <div class="modal-body">
                         <form action="index.php" method="POST">
                             <div class="mb-3">
-                                <label for="user_email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="user_email" name="user_email" aria-describedby="emailHelp" required>
+                                <label for="user_name" class="form-label">User name</label>
+                                <input type="text" class="form-control" id="user_name" name="user_name" aria-describedby="emailHelp" required>
                             </div>
                             <div class="mb-3">
                                 <label for="user_pass" class="form-label">Password</label>
@@ -129,7 +136,7 @@
                 <label for="floatingTextarea">Comments</label>
             </div>
             <?php
-                if (!isset($_SESSION['user_email'])){
+                if (!isset($_SESSION['user_name'])){
                     echo '<a href="" data-bs-toggle="modal" data-bs-target="#sign-in-modal"
                             class="btn btn-outline-success btn-md my-3">Sign in</a>';
                 } else{

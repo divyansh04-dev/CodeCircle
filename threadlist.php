@@ -42,34 +42,41 @@
     <div id="success_msg"></div>
     <?php include 'common/_header.php'; ?>
     <?php
-         echo '<!-- sign in modal -->
-         <div class="modal fade" id="sign-in-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-             <div class="modal-dialog">
-                 <div class="modal-content">
-                     <div class="modal-header">
-                         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                     </div>
-                     <div id="msg"></div>
-                     <div class="modal-body">
-                         <form action="" method="POST">
-                             <div class="mb-3">
-                                 <label for="check_email" class="form-label">Email address</label>
-                                 <input type="email" class="form-control" id="check_email" name="check_email" required>
-                             </div>
-                             <div class="mb-3">
-                                 <label for="check_pass" class="form-label">Password</label>
-                                 <input type="password" class="form-control" id="check_pass" name="check_pass" required>
-                             </div>
-                             </form>
-                     </div>
-                     <div class="modal-footer">
-                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                         <button type="button" id="check_user" class="btn btn-primary">Submit</button>
-                     </div>
-                 </div>
-             </div>
-         </div>';
+        echo '<!-- sign in modal -->
+        <div class="modal fade" id="sign-in-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="msg"></div>
+                    <div class="modal-body">
+                        <form action="" id="sign" method="POST">
+                            <div class="mb-3">
+                                <label for="check_name" class="form-label">User name</label>
+                                <input type="text" class="form-control" id="check_name" name="check_name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="check_pass" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="check_pass" name="check_pass" required>
+                            </div>
+                            </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row w-100">
+                            <div class="col text-start">
+                                <p id="forgot" class="mb-0">Forgot Password</p>
+                            </div>
+                            <div class="col text-end">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" id="check_user" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>';
         
         echo '<!-- sign up modal -->
         <div class="modal fade" id="sign-up-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,8 +90,8 @@
                     <div class="modal-body">
                         <form action="index.php" method="POST">
                             <div class="mb-3">
-                                <label for="user_email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="user_email" name="user_email" aria-describedby="emailHelp" required>
+                                <label for="user_name" class="form-label">User name</label>
+                                <input type="text" class="form-control" id="user_name" name="user_name" aria-describedby="emailHelp" required>
                             </div>
                             <div class="mb-3">
                                 <label for="user_pass" class="form-label">Password</label>
@@ -137,7 +144,7 @@
                 <input type="text" class="form-control" id="thread_desc" name="thread_desc" required>
             </div>
             <?php
-                if (!isset($_SESSION['user_email'])){
+                if (!isset($_SESSION['user_name'])){
                     echo '<a href="" data-bs-toggle="modal" data-bs-target="#sign-in-modal"
                 class="btn btn-outline-success btn-md ms-2">Sign in</a>';
                 } else{
